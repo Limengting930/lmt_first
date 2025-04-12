@@ -106,9 +106,11 @@ const paginationData = reactive({
 const getListData = () => {
   authAdmin(paginationData).then(({ data }) => {
     const { list, total } = data.data
+    console.log(list,'list')
     list.forEach(item => {
       item.create_time = dayjs(item.create_time).format('YYYY-MM-DD')
     })
+
     tableData.list = list
     tableData.total = total
   })
@@ -123,6 +125,7 @@ onMounted(() => {
   getListData()
   menuSelectList().then(({ data }) => {
     options.value = data.data
+    console.log(options.value,'options.value')
   })
 })
 

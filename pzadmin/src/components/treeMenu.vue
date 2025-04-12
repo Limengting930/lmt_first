@@ -31,7 +31,7 @@
 import { useRouter } from 'vue-router'
 import {useStore} from 'vuex';
 const props=defineProps(['menuData'])
-console.log(props,'props')
+//console.log(props,'props')
 //创建router实例
 const router=useRouter()
 //创建store实例

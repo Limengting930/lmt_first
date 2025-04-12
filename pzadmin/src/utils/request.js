@@ -1,6 +1,7 @@
+//引入axios
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
-
+//创建实例
 //二次封装
 const http = axios.create({
   baseURL: 'https:/v3pz.itndedu.com/v3pz',//接口地址
@@ -11,8 +12,9 @@ const http = axios.create({
 // 添加请求拦截器
 //这段代码是在每次请求之前自动添加 Token，用于用户身份验证
 http.interceptors.request.use(function (config) {
+    //config：请求的信息
     // 在发送请求之前做些什么
-    const token = localStorage.getItem('pz_token')
+    const token = localStorage.getItem('pz_token')//在用户登录成功后存储的用户身份验证令牌
     //不需要添加token的api
     const whiteUrl = ['/login','/get/code','/user/authentication']
     if(token && !whiteUrl.includes(config.url) ){
@@ -20,7 +22,7 @@ http.interceptors.request.use(function (config) {
     }
     return config;
   }, function (error) {
-    // 对请求错误做些什么
+    // 对请求错误做些什么 抛出错误
     return Promise.reject(error);
   });
 

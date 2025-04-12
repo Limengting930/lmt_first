@@ -5,7 +5,7 @@ import router from './router'
 import store from './store'
 import PanelHead from './components/panelHead.vue'
 
-//刷新后的动态路由添加
+//刷新后的动态路由添加 实现持久化
 const localData=localStorage.getItem('pz_v3pz')
 if(localData){
   store.commit('dynamicMenu',JSON.parse(localData).menu.routerList)

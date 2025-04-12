@@ -191,7 +191,8 @@ const handleCurrentChange = (val) => {
 
 //多选陪护师
 const selectTableData = ref([])
-//传入选中的陪护师id
+//传入选中的陪护师id 
+//map 方法对 val 数组进行遍历，提取每行数据的 id 属性，并将其封装为一个对象 {id: item.id}。
 const handleSelectionChange= (val) => {
     selectTableData.value = val.map(item => ({id:item.id}))
 }
@@ -281,8 +282,8 @@ const open = (rowData) => {
 }
 .image-list {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  align-items: center;//垂直方向居中对齐
+  flex-wrap: wrap;//允许子元素在一行放不下时自动换行
   .img-box {
     position: relative;
     .select {
@@ -294,8 +295,8 @@ const open = (rowData) => {
       background-color: #67c23a;
       z-index: 999;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: center;//水平居中
+      align-items: center;//垂直居中
     }
   }
   .el-image {

@@ -152,10 +152,12 @@ const submitForm = async(formEl) => { //async声明一个异步函数
             localStorage.setItem('pz_token',data.data.token)
             localStorage.setItem('pz_userInfo',JSON.stringify(data.data.userInfo))
             menuPermissions().then(({data}) => {
+              //更新 Vuex 中的菜单状态
               store.commit('dynamicMenu',data.data)
               console.log(routerList,'routerList')
               //将响应式数据转化为普通的路由数据
               toRaw(routerList.value).forEach(item => {
+                //将每个路由项 item 动态添加到名为 'main' 的路由组中。
                 router.addRoute('main',item)
             })
               router.push('/')
