@@ -1,9 +1,10 @@
 <template>
     {{ formater }}
-  </template>
+</template>
   
   <script setup>
   import { ref, onMounted, defineProps, defineEmits, watch } from "vue";
+  //props 是通过 defineProps 宏定义的一个对象，包含了父组件传递给当前组件的所有属性。
   const props = defineProps({
     second: {
       type: Number,
@@ -22,7 +23,7 @@
       default: "",
     },
   });
-  const emit = defineEmits(["counterOver"]);
+  const emit = defineEmits(["counterOver"]);//定义了一个名为 counterOver 的事件，当倒计时结束时触发该事件，通知父组件倒计时已完成。
   // 倒计时显示
   const formater = ref("");
   
@@ -32,7 +33,6 @@
   // 倒计时逻辑处理
   const TIME_FORMAT = (ts) => {
     let res;
-  
     const showtime = () => {
       if (ts <= 0) {
         clearInterval(run);

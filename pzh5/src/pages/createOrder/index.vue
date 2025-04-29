@@ -167,6 +167,7 @@ return createInfo.hospitals.map(item => {
   return {text:item.name,value:item.id}
 })
 })
+//遍历 createInfo.hospitals 数组,对于每个 item，提取其 name 和 id 属性，并将其转换为 { text: item.name, value: item.id } 的格式。
 
 //选择医院
 const showHosConfirm = (item) => {
